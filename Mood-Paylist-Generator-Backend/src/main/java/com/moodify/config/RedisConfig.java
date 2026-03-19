@@ -42,3 +42,8 @@ public class RedisConfig {
     }
 
 }
+
+
+//Redis Configuration enables in-memory caching for high-performance data access
+//
+//Reduces database load and improves response time
