@@ -1,4 +1,4 @@
-package com.moodify.dto;
+package com.moodify.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

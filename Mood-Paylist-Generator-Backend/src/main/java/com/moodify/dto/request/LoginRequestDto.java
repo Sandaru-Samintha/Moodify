@@ -1,4 +1,4 @@
-package com.moodify.dto;
+package com.moodify.dto.request;
 
 
 import lombok.AllArgsConstructor;
