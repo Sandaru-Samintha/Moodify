@@ -79,7 +79,7 @@ public class UserService {
         user.setEmail(userRequestDto.getEmail());
 
         if(userRequestDto.getPassword() != null && !userRequestDto.getPassword().isEmpty()){
-            user.setUsername(passwordEncoder.encode(userRequestDto.getPassword()));
+            user.setPassword(passwordEncoder.encode(userRequestDto.getPassword()));
         }
 
         User updateUser = userRepository.save(user);
