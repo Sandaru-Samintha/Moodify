@@ -12,6 +12,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -108,5 +110,15 @@ public class UserService {
 
     public boolean existByEmail(String email){
         return userRepository.existsByEmail(email);
+    }
+
+    public List<UserResponseDto> getAllUsers() {
+        return userRepository.findAll().stream()
+                .map(user -> {
+                    UserResponseDto dto = modelMapper.map(user, UserResponseDto.class);
+                    dto.setHasSpotifyToken(user.getSpotifyAccessToken() != null);
+                    return dto;
+                })
+                .collect(Collectors.toList());
     }
 }
